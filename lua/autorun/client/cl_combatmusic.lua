@@ -17,7 +17,7 @@ MusicPacks[3]["victory"] = {"music/beartooth_01/deathcam.mp3","music/beartooth_0
 --]]
 
 
-local CurrentMusicPack = 1
+local CurrentMusicPack = 0
 local CurrentMusicPackTable = {}
 
 local CurrentSound = nil
