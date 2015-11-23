@@ -139,7 +139,7 @@ function CombatMusicStopHandler()
 	if CurrentSound then
 		if CombatMusicIsPlaying == true then
 			if CombatMusicStopTime <= CurTime() then
-				CurrentSound:Stop()
+				--CurrentSound:Stop()
 				CombatMusicIsPlaying = false
 			end
 		end
@@ -178,11 +178,7 @@ hook.Add("Think","Combat Music: Think",CombatMusicThink)
 
 function CombatMusicChange(ply,cmd,args)
 	
-	if not args[1] then
-		ply:ChatPrint("Please enter a valid number between 1 and " .. #SubDirs)
-	return end
-	
-	local Number = tonumber(args[1])
+	local Number = tonumber(args[1]) or 0
 
 	if not type(Number) == "number" then
 		ply:ChatPrint("That is not a number. Please enter a valid number between 1 and " .. #SubDirs)
@@ -190,7 +186,7 @@ function CombatMusicChange(ply,cmd,args)
 	end
 	
 	if Number > #SubDirs or Number <= 0 then
-		ply:ChatPrint("Please enter a valid number between 1 and " .. #SubDirs)
+		ply:ChatPrint("Please enter a valid number between 0 and " .. #SubDirs)
 		return
 	end
 	
